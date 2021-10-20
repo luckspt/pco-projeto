@@ -17,14 +17,15 @@ public class PCOFase1 {
      * @param args Nao utilizado
      */
     public static void main(String[] args) {
-        String[] percurso1 = { // REGULAR REVERSO
-                "isFriendly,hasWater", // 0 3
+        String[] percurso1 = {
+                "isFriendly,hasWater",
                 "hasLight,hasWater,isFriendly",
-                "hasWater,hasFood,isFriendly,canRefuel", // 2
-                "hasLight,hasWater,canBreathe", // 2
+                "hasWater,hasFood,isFriendly,canRefuel",
+                "hasLight,hasWater,canBreathe", // canRefuel
                 "canBreathe",
-                "hasWater,isFriendly,hasLight" // 3 0
+                "hasWater,isFriendly,hasLight"
         };
+
         String propriedade = "0:hasWater;2:canRefuel,isFriendly;3:hasWater,hasLight";
         System.out.println("Resultado correto e': true. O vosso resultado e': " +
                 MetodosVerificacao.verificaPropriedade(percurso1, propriedade, "REGULAR"));
