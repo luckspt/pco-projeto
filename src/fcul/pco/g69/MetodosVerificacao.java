@@ -16,7 +16,7 @@ class MetodosVerificacao {
      * sentido in {"REGULAR","INVERSO"} &&
      * os elementos de trajeto são sequencias de características da
      * forma caract_1,...,caract_m
-     * propriedade é da forma k1:prop_1;...;kn:prop_n onde cada k_i é
+     * propriedade é da forma k_1:prop_1;...;kn:prop_n onde cada k_i é
      * um inteiro e cada prop_i é uma sequência de características da
      * forma caract_1,...,caract_m
      */
@@ -52,7 +52,7 @@ class MetodosVerificacao {
             // Partir as propriedades
             String[] props = dividido[1].split(",");
 
-            // Testar se o planeta contém as propriedades
+            // Testar se o planeta contém cada propriedade
             for (String prop : props) {
                 boolean contem = trajeto[i].contains(prop);
                 if (!contem)
