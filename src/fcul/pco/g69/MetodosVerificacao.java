@@ -32,34 +32,49 @@ class MetodosVerificacao {
             String[] dividido = parte.split(":");
 
             // o Integer#valueOf retorna um Integer e não um int, portanto usamos o Integer#parseInt
-            int mais = Integer.parseInt(dividido[0]);
-
-            // i cresce no sentido regular e decresce no sentido inverso
-            if (sentido.equals("REGULAR")) {
-                i += mais;
-
-                // Se ultrapassa o comprimento de trajeto, por quanto ultrapassa?
-                i %= trajeto.length;
-            } else {
-                i -= mais;
-                i %= trajeto.length;
-
-                // se i negativo tem de se dar a volta
-                if (i < 0)
-                    i += trajeto.length;
-            }
+            int incremento = Integer.parseInt(dividido[0]);
+            i = MetodosVerificacao.proxIndice(i, incremento, trajeto.length, sentido);
 
             // Partir as propriedades
             String[] props = dividido[1].split(",");
 
             // Testar se o planeta contém cada propriedade
-            for (String prop : props) {
-                boolean contem = trajeto[i].contains(prop);
-                if (!contem)
-                    return false;
-            }
+            if (!MetodosVerificacao.contemTodas(props, trajeto[i]))
+                return false;
         }
 
         return true;
+    }
+
+    /**
+     * Se a String s contém todas as sub-Strings de v
+     * @param v Substrings a conter
+     * @param s String que deve conter as sub-Strings
+     * @return Se as substrings de v estão contidas em s
+     */
+    private static boolean contemTodas(String[] v, String s) {
+        for (String str : v)
+            if (!s.contains(str))
+                return false;
+        return true;
+    }
+
+    private static int proxIndice(int atual, int incremento, int maximo, String sentido) {
+        // i cresce no sentido regular e decresce no sentido inverso
+        if (sentido.equals("REGULAR")) {
+            atual += incremento;
+
+            // Se ultrapassa o comprimento de trajeto, por quanto ultrapassa?
+            atual %= maximo;
+        } else {
+            atual -= incremento;
+            atual %= maximo;
+
+            // se i negativo tem de se dar a volta
+            if (atual < 0)
+                atual += maximo;
+        }
+
+        return atual;
     }
 }
