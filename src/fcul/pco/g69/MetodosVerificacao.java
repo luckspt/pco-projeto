@@ -5,20 +5,21 @@ package fcul.pco.g69;
  *
  * @author G69 - 53741 Lívia Batalha; 56926 Lucas Pinto, 56941 Bruno Gonzalez
  */
-class MetodosVerificacao {
+public class MetodosVerificacao {
     /**
      * Um dado trajeto, num dado sentido, satisfaz uma dada propriedade?
      *
      * @param trajeto     O trajeto em questão
      * @param propriedade A propriedade a ser verificada
      * @param sentido     O sentido a considerar no trajeto para a verificação
-     * @requires trajeto != null && propriedade != null &&
-     * sentido in {"REGULAR","INVERSO"} &&
+     * @requires trajeto != null &amp;&amp; propriedade != null &amp;&amp;
+     * sentido in {"REGULAR","INVERSO"} &amp;&amp;
      * os elementos de trajeto são sequencias de características da
      * forma caract_1,...,caract_m
      * propriedade é da forma k_1:prop_1;...;kn:prop_n onde cada k_i é
      * um inteiro e cada prop_i é uma sequência de características da
      * forma caract_1,...,caract_m
+     * @return Se o trajeto satisfaz a propriedade
      */
     public static boolean verificaPropriedade(String[] trajeto, String propriedade, String sentido) {
         // Parte as propriedades em partes, cada uma para um planeta no trajeto
@@ -50,6 +51,7 @@ class MetodosVerificacao {
      * Se a String s contém todas as sub-Strings de v
      * @param v Substrings a conter
      * @param s String que deve conter as sub-Strings
+     * @requires v != null && s != null
      * @return Se as substrings de v estão contidas em s
      */
     private static boolean contemTodas(String[] v, String s) {
@@ -59,6 +61,15 @@ class MetodosVerificacao {
         return true;
     }
 
+    /**
+     * Obtém o próximo indice válido de [0, maximo[
+     * @param atual Índice atual
+     * @param incremento Quanto somar ao índice atual
+     * @param maximo Máximo valor do índice, exclusivo
+     * @param sentido Sentido regular ou inverso
+     * @requires sentido in {"REGULAR","INVERSO"} &amp;&amp; atual >= 0 &amp;&amp; atual < maximo
+     * @return Próximo índice
+     */
     private static int proxIndice(int atual, int incremento, int maximo, String sentido) {
         // i cresce no sentido regular e decresce no sentido inverso
         if (sentido.equals("REGULAR")) {
