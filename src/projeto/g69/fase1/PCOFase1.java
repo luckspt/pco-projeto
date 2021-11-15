@@ -1,4 +1,4 @@
-package fcul.pco.g69;
+package projeto.g69.fase1;
 
 /**
  * Esta classe permite testar a funcao verificaPropriedade
