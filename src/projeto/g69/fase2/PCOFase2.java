@@ -31,7 +31,7 @@ public class PCOFase2 {
         List<Propriedade> props2 = Arrays.asList(Propriedade.BREATHABLE,Propriedade.HAS_WATER,Propriedade.HAS_LIGHT);
         List<Propriedade> props3 = Arrays.asList(Propriedade.FRIENDLY,Propriedade.BREATHABLE);
 
-        Planeta jovian = new Planeta("Pasiphae", props1);
+        /*Planeta jovian = new Planeta("Pasiphae", props1);
         System.out.println(jovian.toString());
         System.out.println();
 
@@ -42,29 +42,29 @@ public class PCOFase2 {
                 jovian.temPropriedade(Propriedade.BREATHABLE));
         System.out.println("O planeta Pasiphae tem as propriedades " + props1.toString() + "? " +
                 jovian.temTodas(props1));
-        System.out.println();
+        System.out.println();*/
 
         Planeta[][] myPlanetas = umMauSistema(props1);
         // Deve dar false
-        System.out.println("Universo e' valido? " + SistemaSolar.universoValido(myPlanetas));
+        /*System.out.println("Universo e' valido? " + SistemaSolar.universoValido(myPlanetas));*/
 
         myPlanetas = novoSistema(props1, props2, props3);
         // Deve dar true
-        System.out.println("Universo e' valido? " + SistemaSolar.universoValido(myPlanetas));
-        System.out.println();
+        /*System.out.println("Universo e' valido? " + SistemaSolar.universoValido(myPlanetas));
+        System.out.println();*/
 
         SistemaSolar mySolar = new SistemaSolar("Tarvos", myPlanetas);
-        System.out.println(mySolar.toString());
-        System.out.println();
+        /*System.out.println(mySolar.toString());
+        System.out.println();*/
 
         List<Propriedade> props4 = Arrays.asList(Propriedade.HAS_LIGHT,Propriedade.BREATHABLE);
 
         System.out.println("O planeta na posicao 2 satisfaz " + props4.toString() + "? " +
-                mySolar.nEsimoTem(2, props4));   // Deve dar false
+                mySolar.nEsimoTem(0, props4));   // Deve dar false
         System.out.println("O planeta na posicao 4 satisfaz " + props4.toString() + "? " +
                 mySolar.nEsimoTem(4, props4));   // Deve dar true
 
-        List<String> comProps = mySolar.comPropriedades(props2);
+        /*List<String> comProps = mySolar.comPropriedades(props2);
         System.out.println();
         System.out.println("Planetas com as propriedades " + props2.toString() + ":");
         // Deve dar Paaliaq Amalthea Ananke Kallichore Eukelade
@@ -92,7 +92,7 @@ public class PCOFase2 {
         verificaSatisfacao("7:FRIENDLY,BREATHABLE;18:BREATHABLE,HAS_WATER,HAS_LIGHT",
                 myInspetor);
         verificaSatisfacao("1:HAS_WATER,BREATHABLE,HAS_LIGHT;3:HAS_LIGHT,BREATHABLE;4:HAS_WATER;3:FRIENDLY",
-                myInspetor);
+                myInspetor);*/
     }
 
     /**
