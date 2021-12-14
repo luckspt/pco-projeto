@@ -24,7 +24,7 @@ public class MetodosVerificacao {
      */
     public static boolean verificaPropriedade(String[] trajeto, String propriedade, String sentido) {
         // Parte as propriedades em partes, cada uma para um planeta no trajeto
-        String[] propPartes = propriedade.split(";"); // TODO q tal separar por ;|: ?
+        String[] propPartes = propriedade.split(";");
 
         // i começa a 0 se regular, caso contrário começa no último índice
         int i = sentido.equals("REGULAR") ? 0 : trajeto.length - 1;

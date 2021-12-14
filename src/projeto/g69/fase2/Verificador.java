@@ -58,7 +58,7 @@ public class Verificador {
      * @param posi A posicao do planeta sobre o qual devem ser verificadas
      *             as propriedades dadas
      * @param prop As propriedades a verificar
-     * @requires posi >= 0 && prop != null
+     * @requires posi >= 0 &amp;&amp; prop != null
      * @return true se o planeta que se encontra na posicao posi do sistema solar
      *              associado a este verificador satisfaz as propriedades em prop
      *         false caso contrario

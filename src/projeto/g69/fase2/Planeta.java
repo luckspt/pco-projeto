@@ -9,7 +9,14 @@ import java.util.List;
  * @date 21 de novembro de 2021.
  */
 public class Planeta {
+    /**
+     * Nome do planeta
+     */
     private final String nome;
+
+    /**
+     * Lista de propriedades do planeta
+     */
     private final List<Propriedade> props;
 
     /**

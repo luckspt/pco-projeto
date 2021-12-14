@@ -10,7 +10,14 @@ import java.util.List;
  * @date 21 de novembro de 2021.
  */
 public class SistemaSolar {
+    /**
+     * Nome do Sistema Solas
+     */
     private final String nome;
+
+    /**
+     * Matriz dos planetas
+     */
     private final Planeta[][] planetas;
 
     /**
@@ -28,7 +35,7 @@ public class SistemaSolar {
      * Verifica se Planetas estão representados numa matriz sem elementos nulos.
      *
      * @param arrayBi Array bidimensional de Planetas a verificar.
-     * @requires arrayBi != null && arrayBi.length >= 1
+     * @requires arrayBi != null &amp;&amp; arrayBi.length >= 1
      * @return Boolean true se arrayBi for uma matriz e não tem elementos nulos, boolean false se não.
      */
     public static boolean universoValido(Planeta[][] arrayBi) {
