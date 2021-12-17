@@ -43,7 +43,7 @@ public class PCOFase3 {
 		Scanner leitor = new Scanner(System.in);		
 
 		// Construir uma matriz de corpos celestes a partir de um ficheiro
-		CorpoCeleste[][] m = obtemMatriz("InfoSistema2.txt");
+		CorpoCeleste[][] m = obtemMatriz("input/InfoSistema2.txt");
 		// Perguntar user qual o direcionador que pretende para decidir o percurso
 		Direcionador d = umDirecionador(leitor);
 		
@@ -68,18 +68,18 @@ public class PCOFase3 {
 		jogs.add(v2);
 
 		// E agora... Vamos dar inicio ao Grande Premio Sideral!
-		GrandePremioSideral gp = new GrandePremioSideral(sistema, jogs, 2000);
-		System.out.println(gp.toString());
+//		GrandePremioSideral gp = new GrandePremioSideral(sistema, jogs, 2000);
+//		System.out.println(gp.toString());
 		
-		realizarProva(leitor, sistema.quantosElementos(), jogs, gp);
-		System.out.println("===================");
+//		realizarProva(leitor, sistema.quantosElementos(), jogs, gp);
+//		System.out.println("===================");
 
 		/*
 		 * Usamos agora o ficheiro InfoSistema1.txt para criar a  
 		 * matriz de um novo sistema solar e um novo grande premio
 		 */
 		Scanner leitor1 = new Scanner(System.in);
-		CorpoCeleste[][] m1 = obtemMatriz("InfoSistema1.txt");
+		CorpoCeleste[][] m1 = obtemMatriz("input/InfoSistema1.txt");
 		Direcionador d1 = umDirecionador(leitor1);		
 		SistemaSolar sistema1 = new Sistema2D("Sirius", m1, d1);		
 
@@ -90,11 +90,11 @@ public class PCOFase3 {
 		jogs1.add(v11);
 		jogs1.add(v21);
 
-		GrandePremioSideral gp1 = new GrandePremioSideral(sistema1, jogs1, 500);
-		System.out.println(gp1.toString());
+//		GrandePremioSideral gp1 = new GrandePremioSideral(sistema1, jogs1, 500);
+//		System.out.println(gp1.toString());
 		
-		realizarProva(leitor1, sistema1.quantosElementos(), jogs1, gp1);
-		System.out.println("===================");
+//		realizarProva(leitor1, sistema1.quantosElementos(), jogs1, gp1);
+//		System.out.println("===================");
 
 		// Criar o sistema 1D seguro baseado na mesma matriz e
 		// um novo grande premio realizado sobre este sistema seguro
@@ -108,11 +108,11 @@ public class PCOFase3 {
 		jogs1.add(v11);
 		jogs1.add(v21);
 
-		gp1 = new GrandePremioSideral(sistemaSeguro1, jogs1, 300);
-		System.out.println(gp1.toString());
+//		gp1 = new GrandePremioSideral(sistemaSeguro1, jogs1, 300);
+//		System.out.println(gp1.toString());
 		
-		realizarProva(leitor1, sistemaSeguro1.quantosElementos(), jogs1, gp1);
-		System.out.println();
+//		realizarProva(leitor1, sistemaSeguro1.quantosElementos(), jogs1, gp1);
+//		System.out.println();
 	}
 
 	/***********************************************************************/
@@ -136,8 +136,10 @@ public class PCOFase3 {
 	 *         nome nomeFich
 	 */
 	private static CorpoCeleste[][] obtemMatriz(String nomeFich) throws FileNotFoundException {
-
-		Scanner leitor = new Scanner(new FileReader(nomeFich));
+		Scanner leitor = new Scanner(new FileReader(
+				// Fix porque dava erro ao encontrar o ficheiro
+				PCOFase3.class.getResource(nomeFich).getFile()
+		));
 
 		int lin = leitor.nextInt();
 		int col = leitor.nextInt();
@@ -282,23 +284,23 @@ public class PCOFase3 {
 				jogadasViajantes(jogs, leitor,quantosElementos);	
 		boolean doisEmJogo = jogadas.size() >= 2;
 		
-		while(doisEmJogo) {
-			gp.fazJogada(jogadas);
-			nJogadas++;
-			imprimeJogadores(jogs);
-			jogadas = jogadasViajantes(jogs, leitor,quantosElementos);	
-			doisEmJogo = jogadas.size() >= 2;
-		}
+//		while(doisEmJogo) {
+//			gp.fazJogada(jogadas);
+//			nJogadas++;
+//			imprimeJogadores(jogs);
+//			jogadas = jogadasViajantes(jogs, leitor,quantosElementos);
+//			doisEmJogo = jogadas.size() >= 2;
+//		}
 
-		if(nJogadas > 0) {
-			List<String> vencedores = gp.vencedores();
-			System.out.println("And the winners are:");
-			for(String nome : vencedores) {
-				System.out.println(nome);
-			}
-		} else {
-			System.out.println("Prova cancelada");
-		}
+//		if(nJogadas > 0) {
+//			List<String> vencedores = gp.vencedores();
+//			System.out.println("And the winners are:");
+//			for(String nome : vencedores) {
+//				System.out.println(nome);
+//			}
+//		} else {
+//			System.out.println("Prova cancelada");
+//		}
 	}
 
 	private static void imprimeJogadores(List<Viajante> jogs) {

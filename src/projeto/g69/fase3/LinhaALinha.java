@@ -30,6 +30,7 @@ public class LinhaALinha implements Direcionador {
 	 */
 	public CorpoCeleste nEsimoElemento(int n) {
 		int p = (n - 1) % (this.matriz.length * this.matriz[0].length);
+		// TODO dá erro Index -1 out of bounds for length 8
 		return matriz[p / matriz[0].length][p % matriz[0].length];
 	}
 

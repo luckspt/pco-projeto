@@ -2,6 +2,10 @@ package projeto.g69.fase3;
 
 import java.util.List;
 
+/**
+ * As instâncias desta classe definem a base de um Sistema Solar
+ *
+ */
 public abstract class AbstractSistemaSolar implements SistemaSolar {
     /**
      * Nome do Sistema Solar

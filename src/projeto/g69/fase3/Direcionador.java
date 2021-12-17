@@ -1,5 +1,8 @@
 package projeto.g69.fase3;
 
+/**
+ * Define um Direcionador
+ */
 public interface Direcionador {
     /**
      * Define o universo sobre o qual o direcionador vai trabalhar

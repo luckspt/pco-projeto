@@ -132,7 +132,7 @@ public class SistemaSolar {
      * @return Boolean true se tiver, boolean false se não.
      */
     public boolean nEsimoTem(int n, List<Propriedade> props) {
-        // No enunciado, n refere-se à posição mas é usado como índice
+        // No enunciado, n refere-se à posição, mas é usado como índice
         // Para tornar n num índice:
         // n--;
 

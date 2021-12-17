@@ -1,5 +1,6 @@
 package projeto.g69.fase3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema1DSeguro extends AbstractSistemaSolar {
@@ -7,11 +8,17 @@ public class Sistema1DSeguro extends AbstractSistemaSolar {
     private LinhaALinha direcionador;
     private List<CorpoCeleste> linear;
 
+    public Sistema1DSeguro(String nome, CorpoCeleste[][] m) {
+        this(nome, m, new LinhaALinha());
+    }
+
     public Sistema1DSeguro(String nome, CorpoCeleste[][] m, Direcionador d) {
         super(nome);
         this.matriz = m;
         this.direcionador = (LinhaALinha)d;
         this.direcionador.defineUniverso(m);
+
+        this.linear = new ArrayList();
         this.defineLinear();
     }
 
