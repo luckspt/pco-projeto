@@ -1,7 +1,10 @@
 package projeto.g69.fase3;
 
 /**
- * Representa um BuracoNegro
+ * Buraco negro.
+ *
+ * @author G69 - 53741 Lívia Batalha, 56926 Lucas Pinto, 56941 Bruno Gonzalez;
+ * @date 17 de dezembro de 2021.
  */
 public class BuracoNegro extends CorpoCeleste {
     /**
@@ -14,9 +17,9 @@ public class BuracoNegro extends CorpoCeleste {
     }
 
     /**
-     * Calcula a distância mínima de segurança entre o BuracoNegro e outro corpo celeste
+     * Calcula a distância mínima de segurança entre o BuracoNegro e outro CorpoCeleste
      * @param c CorpoCeleste a comparar
-     * @return A distância mínima de segurança entre os dois CorposCeleste's
+     * @return a distância mínima de segurança entre os dois CorposCeleste's
      * @requires c != null
      */
     public double distanciaMinimaSeguranca(CorpoCeleste c) {

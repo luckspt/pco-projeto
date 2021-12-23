@@ -2,10 +2,22 @@ package projeto.g69.fase3;
 
 import java.util.List;
 
+/**
+ * Sistema 2D.
+ *
+ * @author G69 - 53741 Lívia Batalha, 56926 Lucas Pinto, 56941 Bruno Gonzalez;
+ * @date 17 de dezembro de 2021.
+ */
 public class Sistema2D extends AbstractSistemaSolar {
     private CorpoCeleste[][] matriz;
     private Direcionador direcionador;
 
+    /**
+     * Inicializa um Sistema2D
+     * @param nome String nome do sistema
+     * @param m CorpoCeleste[][] matriz universo
+     * @param d Direcionador direcionador
+     */
     public Sistema2D(String nome, CorpoCeleste[][] m, Direcionador d) {
         super(nome);
         this.matriz = m;
@@ -14,9 +26,8 @@ public class Sistema2D extends AbstractSistemaSolar {
     }
 
     /**
-     * Número de elementos de Sistema2D.
-     *
-     * @return int número de elementos.
+     * Número de elementos de Sistema2D
+     * @return Número de elementos
      */
     public int quantosElementos() {
         return this.matriz.length * this.matriz[0].length;
@@ -24,17 +35,17 @@ public class Sistema2D extends AbstractSistemaSolar {
 
     /**
      * Obtém o CorpoCeleste na posição
-     * @param n int número de ordem do corpo celeste.
-     * @return
+     * @param n Número de ordem do corpo celeste
+     * @return a quantidade de elementos
      */
     public CorpoCeleste getElemento(int n) {
         return this.direcionador.nEsimoElemento(n);
     }
 
     /**
-     *
-     * @param c CorpoCeleste a considerar.
-     * @return
+     * Procura o BuracoNegro mais perto do CorpoCeleste
+     * @param c CorpoCeleste a considerar
+     * @return o BuracoNegro mais perto
      * @requires c != null
      */
     public BuracoNegro buracoNegroMaisPerto(CorpoCeleste c) {
@@ -45,6 +56,7 @@ public class Sistema2D extends AbstractSistemaSolar {
         for (int lin=0; lin<this.matriz.length; lin++) {
             for (int col=0; col<this.matriz[lin].length; col++) {
                 CorpoCeleste corpoCeleste = this.matriz[lin][col];
+
                 if (corpoCeleste instanceof BuracoNegro) {
                     double distancia = corpoCeleste.distancia(c);
                     if (distanciaMin == null || distancia < distanciaMin) {
@@ -91,11 +103,18 @@ public class Sistema2D extends AbstractSistemaSolar {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Nome: " + this.nome() + "\n");
-        sb.append("Direcionador: " + this.direcionador + "\n");
+        sb.append("Direcionador: " + this.direcionador.getClass().getSimpleName() + "\n");
 
         for (CorpoCeleste[] corpoCelestes : this.matriz) {
             for (CorpoCeleste corpoCeleste : corpoCelestes) {
-                String val = corpoCeleste.toString();
+                String val;
+                if (corpoCeleste == null)
+                    val = "null";
+                else if (corpoCeleste instanceof BuracoNegro)
+                    val = "B" + corpoCeleste.posicao();
+                else
+                    val = corpoCeleste.posicao().toString();
+
                 // TODO representar melhor
                 sb.append(
                         String.format("%-15s",
@@ -105,6 +124,6 @@ public class Sistema2D extends AbstractSistemaSolar {
             sb.append("\n");
         }
 
-        return sb.toString();
+        return sb.deleteCharAt(sb.length() - 1).toString();
     }
 }

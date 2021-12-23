@@ -3,8 +3,10 @@ package projeto.g69.fase3;
 import java.util.List;
 
 /**
- * As instâncias desta classe definem a base de um Sistema Solar
+ * Base do sistema solar.
  *
+ * @author G69 - 53741 Lívia Batalha, 56926 Lucas Pinto, 56941 Bruno Gonzalez;
+ * @date 17 de dezembro de 2021.
  */
 public abstract class AbstractSistemaSolar implements SistemaSolar {
     /**
@@ -22,7 +24,7 @@ public abstract class AbstractSistemaSolar implements SistemaSolar {
 
     /**
      * Devolve o nome do Sistema Solar
-     * @return Nome do Sistema Solar
+     * @return o nome do Sistema Solar
      */
     public String nome() {
         return this.nome;
@@ -45,7 +47,7 @@ public abstract class AbstractSistemaSolar implements SistemaSolar {
 
     /**
      * Representação do SistemaSolar em String
-     * @return O nome do Sistema Solar
+     * @return o nome do Sistema Solar
      */
     @Override
     public String toString() {

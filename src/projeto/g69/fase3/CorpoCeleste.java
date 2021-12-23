@@ -1,7 +1,10 @@
 package projeto.g69.fase3;
 
 /**
- * Representa um Corpo Celeste
+ * Corpo celeste.
+ *
+ * @author G69 - 53741 Lívia Batalha, 56926 Lucas Pinto, 56941 Bruno Gonzalez;
+ * @date 17 de dezembro de 2021.
  */
 public class CorpoCeleste {
     /**
@@ -52,7 +55,7 @@ public class CorpoCeleste {
     /**
      * Noção de igualdade entre o CorpoCeleste e um outro objeto
      * @param other Objeto a comparar
-     * @return Se o CorpoCeleste e o objeto são iguais
+     * @return se o CorpoCeleste e o objeto são iguais
      */
     @Override
     public boolean equals(Object other) {
@@ -67,7 +70,10 @@ public class CorpoCeleste {
                 : corpoCeleste.posicao() == null;
     }
 
-    // TODO javadoc ns
+    /**
+     * Representação em hash code de CorpoCeleste.
+     * @return o hash code
+     */
     @Override
     public int hashCode() {
         int result;

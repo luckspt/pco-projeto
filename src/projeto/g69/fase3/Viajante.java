@@ -27,21 +27,24 @@ public class Viajante {
 	}
 
 	/**
-	 * O nome deste viajante
+	 * O nome deste Viajante
+	 * @return o nome do Viajante
 	 */
 	public String nome() {
 		return this.nome;
 	}
 
 	/**
-	 * A pontuacao atual deste viajante
+	 * A pontuacao atual deste Viajante
+	 * @return a pontuação do Viajante
 	 */
 	public int pontuacao() {
 		return this.pontuacao;
 	}
 	                    
 	/**
-	 * A posicao atual deste viajante
+	 * A posicao atual deste Viajante
+	 * @return a posição do Viajante
 	 */
 	public Ponto3D posicaoGlobal() {
 		return this.posicaoGlobal;

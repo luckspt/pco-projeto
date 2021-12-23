@@ -68,11 +68,11 @@ public class PCOFase3 {
 		jogs.add(v2);
 
 		// E agora... Vamos dar inicio ao Grande Premio Sideral!
-//		GrandePremioSideral gp = new GrandePremioSideral(sistema, jogs, 2000);
-//		System.out.println(gp.toString());
+		GrandePremioSideral gp = new GrandePremioSideral(sistema, jogs, 2000);
+		System.out.println(gp.toString());
 		
-//		realizarProva(leitor, sistema.quantosElementos(), jogs, gp);
-//		System.out.println("===================");
+		realizarProva(leitor, sistema.quantosElementos(), jogs, gp);
+		System.out.println("===================");
 
 		/*
 		 * Usamos agora o ficheiro InfoSistema1.txt para criar a  
@@ -90,11 +90,11 @@ public class PCOFase3 {
 		jogs1.add(v11);
 		jogs1.add(v21);
 
-//		GrandePremioSideral gp1 = new GrandePremioSideral(sistema1, jogs1, 500);
-//		System.out.println(gp1.toString());
+		GrandePremioSideral gp1 = new GrandePremioSideral(sistema1, jogs1, 500);
+		System.out.println(gp1.toString());
 		
-//		realizarProva(leitor1, sistema1.quantosElementos(), jogs1, gp1);
-//		System.out.println("===================");
+		realizarProva(leitor1, sistema1.quantosElementos(), jogs1, gp1);
+		System.out.println("===================");
 
 		// Criar o sistema 1D seguro baseado na mesma matriz e
 		// um novo grande premio realizado sobre este sistema seguro
@@ -108,11 +108,11 @@ public class PCOFase3 {
 		jogs1.add(v11);
 		jogs1.add(v21);
 
-//		gp1 = new GrandePremioSideral(sistemaSeguro1, jogs1, 300);
-//		System.out.println(gp1.toString());
+		gp1 = new GrandePremioSideral(sistemaSeguro1, jogs1, 300);
+		System.out.println(gp1.toString());
 		
-//		realizarProva(leitor1, sistemaSeguro1.quantosElementos(), jogs1, gp1);
-//		System.out.println();
+		realizarProva(leitor1, sistemaSeguro1.quantosElementos(), jogs1, gp1);
+		System.out.println();
 	}
 
 	/***********************************************************************/
@@ -201,7 +201,10 @@ public class PCOFase3 {
 		String[] nomes = {"LinhaALinha"};
 		Properties prop = new Properties ();	
 		try {
-			prop.load(new FileInputStream("configuracao.properties") );
+			prop.load(new FileInputStream(
+					// Fix porque dava erro ao encontrar o ficheiro
+					PCOFase3.class.getResource("configuracao.properties").getFile()
+					) );
 			classesDirecionador = prop.getProperty("direcionadores");	
 			nomes = classesDirecionador.split(";");
 		} catch (IOException e1) {
@@ -225,8 +228,9 @@ public class PCOFase3 {
 			// Se nao estiverem, tera' que se acrescentar o path.
 			// Exemplo: "projeto3." + tipoDesejado
 			Constructor construtor = 
-					Class.forName(tipoDesejado).getDeclaredConstructor();
+					Class.forName("projeto.g69.fase3." + tipoDesejado).getDeclaredConstructor();
 			result = (Direcionador) construtor.newInstance();
+
 		} catch (Exception e) {	// caso nao encontre a classe desejada
 			System.out.println("Exception " + tipoDesejado);
 			result = new LinhaALinha();		
@@ -254,18 +258,18 @@ public class PCOFase3 {
 		                   sistemaSeguro.podeVisitar(visitas));
 		System.out.println();
 		
-		CorpoCeleste corpo = sistema.getElemento(24);
-		BuracoNegro bn = sistema.buracoNegroMaisPerto(corpo);
-		System.out.println("Corpo celeste: " + corpo.posicao() + 
-				           "   Buraco negro mais perto: " + bn.posicao());
-		System.out.println("Distancia entre eles: " + corpo.distancia(bn));
+//		CorpoCeleste corpo = sistema.getElemento(24);
+//		BuracoNegro bn = sistema.buracoNegroMaisPerto(corpo);
+//		System.out.println("Corpo celeste: " + corpo.posicao() +
+//				           "   Buraco negro mais perto: " + bn.posicao());
+//		System.out.println("Distancia entre eles: " + corpo.distancia(bn));
 		
 		
-		corpo = sistemaSeguro.getElemento(4);
-		bn = sistemaSeguro.buracoNegroMaisPerto(corpo);
-		System.out.println("Corpo celeste: " + corpo.posicao() + 
-		           "   Buraco negro mais perto: " + bn.posicao());
-		System.out.println("Distancia entre eles: " + corpo.distancia(bn));
+//		corpo = sistemaSeguro.getElemento(4);
+//		bn = sistemaSeguro.buracoNegroMaisPerto(corpo);
+//		System.out.println("Corpo celeste: " + corpo.posicao() +
+//		           "   Buraco negro mais perto: " + bn.posicao());
+//		System.out.println("Distancia entre eles: " + corpo.distancia(bn));
 		System.out.println();
 	}
 
@@ -284,25 +288,30 @@ public class PCOFase3 {
 				jogadasViajantes(jogs, leitor,quantosElementos);	
 		boolean doisEmJogo = jogadas.size() >= 2;
 		
-//		while(doisEmJogo) {
-//			gp.fazJogada(jogadas);
-//			nJogadas++;
-//			imprimeJogadores(jogs);
-//			jogadas = jogadasViajantes(jogs, leitor,quantosElementos);
-//			doisEmJogo = jogadas.size() >= 2;
-//		}
+		while(doisEmJogo) {
+			gp.fazJogada(jogadas);
+			nJogadas++;
+			imprimeJogadores(jogs);
+			jogadas = jogadasViajantes(jogs, leitor,quantosElementos);
+			doisEmJogo = jogadas.size() >= 2;
+		}
 
-//		if(nJogadas > 0) {
-//			List<String> vencedores = gp.vencedores();
-//			System.out.println("And the winners are:");
-//			for(String nome : vencedores) {
-//				System.out.println(nome);
-//			}
-//		} else {
-//			System.out.println("Prova cancelada");
-//		}
+		if(nJogadas > 0) {
+			List<String> vencedores = gp.vencedores();
+			System.out.println("And the winners are:");
+			for(String nome : vencedores) {
+				System.out.println(nome);
+			}
+		} else {
+			System.out.println("Prova cancelada");
+		}
 	}
 
+	/**
+	 * Imprime todos os jogadores para o terminal.
+	 *
+	 * @param jogs List<Viajante> jogadores.
+	 */
 	private static void imprimeJogadores(List<Viajante> jogs) {
 		for(Viajante v : jogs) {
 			System.out.print(v.toString());
